@@ -5,12 +5,12 @@ import time
 from bosszhipin.items import BosszhipinItem
 
 class ZhipinSpider(scrapy.Spider):
-    name = 'boss'
-     
+    name = 'bosszhipin'
+
     allowed_domains = ['www.zhipin.com']
     positionUrl = 'http://www.zhipin.com/c101020100/h_101020100/?query=php'
     curPage = 1
-                  
+    
     headers = {
         'x-devtools-emulate-network-conditions-client-id': "5f2fc4da-c727-43\
 c0-aad4-37fce8e3ff39",
@@ -26,6 +26,7 @@ e/webp,image/apng,*/*;q=0.8",
         'cache-control': "no-cache",
         'postman-token': "76554687-c4df-0c17-7cc0-5bf3845c9831"
         }
+
                                                                       
     def start_requests(self):
         return [self.next_request()]
@@ -36,7 +37,6 @@ e/webp,image/apng,*/*;q=0.8",
         print("request -> " + response.url)
         job_list = response.css('div.job-list > ul > li')
         for job in job_list:
-            print(str(job))
             item = BosszhipinItem()
             job_primary = job.css('div.job-primary')
             item['pid'] = job.css(

@@ -10,7 +10,7 @@ import scrapy
 class BosszhipinItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pid = scrapy.Field()
+    pid = scrapy.Field() 
     positionName = scrapy.Field()
     workYear = scrapy.Field()
     salary = scrapy.Field()

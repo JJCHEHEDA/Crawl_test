@@ -13,7 +13,16 @@ BOT_NAME = 'bosszhipin'
 
 SPIDER_MODULES = ['bosszhipin.spiders']
 NEWSPIDER_MODULE = 'bosszhipin.spiders'
-
+'''
+MYSQL_HOST = 'localhost'
+MYSQL_DBNAME = 'Crawl'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = 'jjcheheda'
+'''
+ITEM_PIPELINES = {
+    'bosszhipin.pipelines.BosszhipinPipeline': 300,
+}
+print("经过这里")
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'bosszhipin (+http://www.yourdomain.com)'
